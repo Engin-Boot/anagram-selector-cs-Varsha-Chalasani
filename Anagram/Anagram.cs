@@ -5,13 +5,14 @@ namespace Anagram
 {
     public class AnagramSelector
     {
-        public bool WordPairIsAnagram(string word1, string word2) {
+        public bool WordPairIsAnagram(string word1, string word2)
+        {
             //Insert the correct implementation here
-            return false;
-        }
-        public List<string> SelectAnagrams(string word, List<string> candidates) {
-            //Insert the correct implementation here
-            return candidates;
-        }
+            StringSorter sorter = new StringSorter();
+            word1 = sorter.SortString(word1);
+            word2 = sorter.SortString(word2);
+
+            return (word1==word2);
+        } 
     }
 }

@@ -9,22 +9,22 @@ namespace Anagram.Tests
     public class AnagramUnitTest
     {
         [Fact]
-        public void RecognizesShuffledAlphabetsAsAnagrams()
+        public void ReportsTrueWhenGivenTwoAnagrams()
         {
             AnagramSelector selector = new AnagramSelector();
             Assert.True(selector.WordPairIsAnagram("restful", "fluster"));
             Assert.True(selector.WordPairIsAnagram("forty five", "over fifty"));
         }
         [Fact]
-        public void ReportsNonAnagrams()
+        public void ReportsFalseWhenGivenTwoNonAnagrams()
         {
             AnagramSelector selector = new AnagramSelector();
             Assert.False(selector.WordPairIsAnagram("something", "else"));
         }
         [Fact]
-        public void SelectsAnagramsOfAWord()
+        public void SelectsAnagramsOfAWordFromAGivenList()
         {
-            AnagramSelector selector = new AnagramSelector();
+            AnagramList selector = new AnagramList();
             var selection = selector.SelectAnagrams("master",
                 new List<string>{"stream", "something", "maters"});
 
