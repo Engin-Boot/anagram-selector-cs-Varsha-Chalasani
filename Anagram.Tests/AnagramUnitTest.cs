@@ -31,5 +31,28 @@ namespace Anagram.Tests
             Assert.True(selection.SequenceEqual(
                 new List<string>{"stream", "maters"}));
         }
+
+        [Fact]
+        public void IgnoreWhitespacesWhenGivenTwoAnagrams()
+        {
+            AnagramSelector selector = new AnagramSelector();
+            Assert.True(selector.WordPairIsAnagram("a gentleman", "elegant man"));
+            Assert.True(selector.WordPairIsAnagram("nag a ram", "anagram"));
+        }
+
+        [Fact]
+        public void IgnoreSpecialCharactersWhenGivenTwoAnagrams()
+        {
+            AnagramSelector selector = new AnagramSelector();
+            Assert.True(selector.WordPairIsAnagram("Church of Scientology", "rich-chosen goofy cult"));
+        }
+
+        [Fact]
+        public void IgnoreCasingWhenGivenTwoAnagrams()
+        {
+            AnagramSelector selector = new AnagramSelector();
+            Assert.True(selector.WordPairIsAnagram("George Bush", "He bugs Gore"));
+            Assert.True(selector.WordPairIsAnagram("William Shakespeare", "I am a weakish speller"));
+        }
     }
 }

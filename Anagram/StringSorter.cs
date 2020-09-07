@@ -5,7 +5,7 @@ namespace Anagram
 {
     public class StringSorter
     {
-        public string SortString(string input)
+        public static string SortString(string input)
         {
             char[] characters = input.ToCharArray();
             Array.Sort(characters);
